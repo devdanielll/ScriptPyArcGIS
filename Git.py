@@ -1,13 +1,17 @@
+'''
+library install:
+    pip install arcgis
+'''
 import concurrent.futures
 import arcgis
 from arcgis.gis import GIS
-import os, re, csv
+import os
 import time
 
 portalURL = "https://www.arcgis.com"
-username = "USER NAME INFO"
-password = "PASSWORD INFO"
-survey_item_id = "ID SURVEY"
+username = "USER NAME INFO" # username from acgis survey123
+password = "PASSWORD INFO" # password from acgis survey123
+survey_item_id = "ID SURVEY" # survey token from acgis survey123
 save_path = r"PATH LOCAL"
 
 start_time = time.time()
@@ -47,7 +51,7 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
                         if not os.path.exists(attachment_path):
                             futures.append(executor.submit(download_attachment, layer, object_id, attachment_id, attachment_path))
 
-end_time = time.time() # Obtém o tempo de término
-elapsed_time = end_time - start_time # Calcula o tempo decorrido
+end_time = time.time() 
+elapsed_time = end_time - start_time 
 
-print(f"Tempo decorrido: {elapsed_time} segundos") # Imprime o tempo decorrido
+print(f"Elapsed time: {elapsed_time} seconds") # print elapsed time
